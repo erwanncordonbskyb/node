@@ -14,12 +14,6 @@ var middleware = {
 };
 
 app.use(middleware.logger);
-//app.use(middleware.requireAthentication);
-
-//
-//app.get('/', function(request, response) {
-//    response.send('Hwllo Express!');
-//});
 
 
 app.get('/about', middleware.requireAthentication, function (request, response) {
