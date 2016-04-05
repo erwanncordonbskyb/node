@@ -19,7 +19,7 @@ var todos = [{
 app.use(middleware.logger);
 
 
-app.get('/', middleware.requireAthentication, function (request, response) {
+app.get('/', function (request, response) {
     response.send('Todo Api Root');
 });
 
