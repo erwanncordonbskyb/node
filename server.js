@@ -16,8 +16,6 @@ var todos = [{
 
 }];
 
-app.use(middleware.logger);
-
 
 app.get('/', function (request, response) {
     response.send('Todo Api Root');
