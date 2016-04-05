@@ -23,9 +23,9 @@ app.get('/', middleware.requireAthentication, function (request, response) {
     response.send('Todo Api Root');
 });
 
-app.get('/todos', function (req, res)) {
+app.get('/todos', function (req, res) {
     res.json(todos);
-}
+});
 
 app.use(express.static(__dirname + '/public'));
 
