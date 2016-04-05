@@ -1,24 +1,31 @@
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 3000;
+var todos = [{
+    id: 1,
+    description: 'Meet mom for lunch',
+    completed: false
+}, {
+    id: 2,
+    description: 'Go to market',
+    completed: false
+}, {
+    id: 3,
+    description: 'feed the lion',
+    completed: true
 
-var middleware = {
-    requireAthentication: function (req, res, next) {
-        console.log('private route hit!');
-        next();
-    },
-    logger: function(req,res, next) {
-        console.log(new Date().toString() + 'Request:' + req.method + ' ' + req.originalUrl);
-        next();
-    }
-};
+}];
 
 app.use(middleware.logger);
 
 
-app.get('/about', middleware.requireAthentication, function (request, response) {
-    response.send('About us!');
+app.get('/', middleware.requireAthentication, function (request, response) {
+    response.send('Todo Api Root');
 });
+
+app.get('/todos', function (req, res)) {
+    res.json(todos);
+}
 
 app.use(express.static(__dirname + '/public'));
 
